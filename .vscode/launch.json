@@ -5,7 +5,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "直接调试可执行文件",
+            "name": "构建项目后调试",
             "type": "cppdbg",
             "request": "launch",
             "program": "/workspace/panda_stl/bin/test",
@@ -26,7 +26,8 @@
                     "text": "-gdb-set disassembly-flavor intel",
                     "ignoreFailures": true
                 }
-            ]
+            ],
+            "preLaunchTask": "build",
         }
     ]
 }
