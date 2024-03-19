@@ -1,4 +1,6 @@
 #include <iostream>
+#include <vector>
+#include <string>
 
 template <class T, T v>
 struct const_value
@@ -16,23 +18,55 @@ int add(int a, int b)
     return a + b;
 }
 
+class A
+{
+public:
+    A() {}
+    A(size_t size) : size(size), array((int *)malloc(size))
+    {
+        std::cout
+            << "create Array，memory at: "
+            << array << std::endl;
+    }
+    ~A()
+    {
+        free(array);
+    }
+    A(A &&a) : array(a.array), size(a.size)
+    {
+        a.array = nullptr;
+        std::cout
+            << "Array moved, memory at: "
+            << array
+            << std::endl;
+    }
+    A(A &a) : size(a.size)
+    {
+        array = (int *)malloc(a.size);
+        for (int i = 0; i < a.size; i++)
+            array[i] = a.array[i];
+        std::cout
+            << "Array copied, memory at: "
+            << array << std::endl;
+    }
+    size_t size;
+    int *array;
+};
+template <typename T>
+void warp(T &&param)
+{
+    if (std::is_rvalue_reference<decltype(param)>::value)
+    {
+        std::cout << "param is rvalue reference\n";
+    }
+    else
+        std::cout << "param is lvalue reference\n";
+    A y = A(param);
+    A z = A(std::forward<T>(param));
+}
 int main()
 {
-    // std::cout << "Hello World!";
-    // int a = 0;
-    // if (const_true::value)
-    //     a = 1;
-    // else
-    //     a = 2;
-
-    // int a = 5;
-    // int &b = a;
-
-    // // int &&b = 5;
-    // std::cout << b;
-    // a = 6;
-    // std::cout << b;
-    int i = 1;
-    int c = i++ + ++i;
+    A a = A(100);
+    warp(std::move(a));
     return 0;
 }
