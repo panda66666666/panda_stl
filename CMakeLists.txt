@@ -19,8 +19,7 @@ include_directories(${PROJECT_SOURCE_DIR}/panda_stl)
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 
 set(SOURCES 
-    ${PROJECT_SOURCE_DIR}/test/test_main.cpp
-)
-add_executable(test ${SOURCES})
+    ${PROJECT_SOURCE_DIR}/test/test_main.cpp)
+add_executable(test ${SOURCES} test/test_main.cpp)
 
 

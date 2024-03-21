@@ -12,12 +12,14 @@
 
 namespace panda_stl
 {
-    template <typename T>
+    template<typename T>
     class vector
     {
         // 成员变量
     public:
         typedef panda_stl::allocator<T> allocator_type;
+        typedef panda_stl::allocator<T> data_allocator;
+
         typedef typename allocator_type::value_type value_type;
         typedef typename allocator_type::size_type size_type;
         typedef value_type *iterator;
@@ -29,47 +31,60 @@ namespace panda_stl
         // 构造函数
     public:
         vector() noexcept;
+
         // explicit vector(int n);
         explicit vector(size_type n);
 
         explicit vector(size_type n, const value_type &value);
 
-        template <typename Iter, typename std::enable_if<panda_stl::is_input_iterator<Iter>::value, int>::type = 0>
+        template<typename Iter, typename std::enable_if<panda_stl::is_input_iterator<Iter>::value, int>::type = 0>
         explicit vector(Iter begin, Iter end);
 
         vector(const vector &rhs);
 
         vector(vector &&rhs) noexcept;
 
+
     private:
         // 定义方法
+        void try_init() noexcept;
     };
 
-    template <typename T>
+    template<typename T>
     inline vector<T>::vector(size_type n)
     {
         return;
     }
 
-    template <typename T>
+    template<typename T>
     inline vector<T>::vector(size_type n, const value_type &value)
     {
     }
 
-    template <typename T>
-    template <typename Iter, typename std::enable_if<panda_stl::is_input_iterator<Iter>::value, int>::type>
+    template<typename T>
+    template<typename Iter, typename std::enable_if<panda_stl::is_input_iterator<Iter>::value, int>::type>
     inline vector<T>::vector(Iter begin, Iter end)
     {
     }
 
-    template <typename T>
+    template<typename T>
     inline vector<T>::vector(const vector &rhs)
     {
     }
 
-    template <typename T>
+    template<typename T>
     inline vector<T>::vector(vector &&rhs) noexcept
     {
     }
+
+    template<typename T>
+    inline void vector<T>::try_init() noexcept
+    {
+        try
+        {
+            this->begin_=
+        }
+    }
+
 
 } // end namespace stl
