@@ -65,13 +65,11 @@ namespace panda_stl
     template <typename T>
     inline vector<T>::vector(const vector &rhs)
     {
-
     }
 
     template <typename T>
     inline vector<T>::vector(vector &&rhs) noexcept
     {
-        
     }
 
 } // end namespace stl
