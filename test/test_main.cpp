@@ -4,13 +4,13 @@
 #include <type_traits>
 #include"vector.h"
 
-template <class T, T v>
+template<class T, T v>
 struct const_value
 {
     static constexpr T value = v;
 };
 
-template <bool b>
+template<bool b>
 using const_bool = const_value<bool, b>;
 
 typedef const_bool<true> const_true;
@@ -73,21 +73,22 @@ int add(int a, int b)
 //     return 0;
 // }
 
-template <typename T, typename std::enable_if<std::is_same<T, int>::value, int>::type = 0>
+template<typename T, typename std::enable_if<std::is_same<T, int>::value, int>::type = 0>
 void fun(T t)
 {
-    std::cout << "我是整形"<<std::endl;
+    std::cout << "我是整形" << std::endl;
 }
 
-template <typename T, typename std::enable_if<std::is_same<T, float>::value, int>::type = 0>
+template<typename T, typename std::enable_if<std::is_same<T, float>::value, int>::type = 0>
 void fun(T t)
 {
-    std::cout << "我是浮点"<<std::endl;
+    std::cout << "我是浮点" << std::endl;
 }
 
 int main()
 {
     fun(1);
-    fun((float)0.5);
+    int a = 1;
+    fun((float) 0.5);
     return 0;
 }

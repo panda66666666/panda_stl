@@ -80,11 +80,7 @@ namespace panda_stl
     template<typename T>
     inline void vector<T>::try_init() noexcept
     {
-        try
-        {
-            this->begin_=
-        }
-    }
 
+    }
 
 } // end namespace stl
