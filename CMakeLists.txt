@@ -19,7 +19,10 @@ include_directories(${PROJECT_SOURCE_DIR}/panda_stl)
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 
 set(SOURCES 
-    ${PROJECT_SOURCE_DIR}/test/test_main.cpp)
+    ${PROJECT_SOURCE_DIR}/test/test_main.cpp
+        my_stl/allocator.h
+        my_stl/constructor.h
+        my_stl/util.h)
 add_executable(test ${SOURCES} test/test_main.cpp)
 
 
