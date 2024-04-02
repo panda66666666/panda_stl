@@ -39,7 +39,7 @@ namespace panda_stl
     private:
         void _try_init();
 
-        void _fill_init();
+        void _fill_init(size_t size);
 
     public:
 //        template<class ...Args>
@@ -51,9 +51,15 @@ namespace panda_stl
     };
 
     template<typename T>
-    void Vector<T>::_fill_init()
+    void Vector<T>::_fill_init(size_t size)
     {
-
+        const size_t init_size = panda_stl::max((size_t) 16, size);
+        // 申请内存
+        try {
+            begin_ptr=allocator::allocate()
+        } catch (...) {
+            
+        }
     }
 
     template<typename T>
