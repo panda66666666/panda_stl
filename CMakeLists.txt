@@ -22,7 +22,9 @@ set(SOURCES
     ${PROJECT_SOURCE_DIR}/test/test_main.cpp
         my_stl/allocator.h
         my_stl/constructor.h
-        my_stl/util.h)
-add_executable(test ${SOURCES} test/test_main.cpp)
+        my_stl/util.h
+        my_stl/test/allocator_test.cpp
+        my_stl/vector.h)
+add_executable(test ${SOURCES} test/test_main2.cpp)
 
 

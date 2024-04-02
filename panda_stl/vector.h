@@ -17,11 +17,11 @@ namespace panda_stl
     {
         // 成员变量
     public:
-        typedef panda_stl::allocator<T> allocator_type;
+        typedef panda_stl::allocator<T> allocator;
         typedef panda_stl::allocator<T> data_allocator;
 
-        typedef typename allocator_type::value_type value_type;
-        typedef typename allocator_type::size_type size_type;
+        typedef typename allocator::value_type value_type;
+        typedef typename allocator::size_type size_type;
         typedef value_type *iterator;
 
     private:
@@ -32,7 +32,7 @@ namespace panda_stl
     public:
         vector() noexcept;
 
-        // explicit vector(int n);
+        explicit vector(int n);
         explicit vector(size_type n);
 
         explicit vector(size_type n, const value_type &value);
@@ -47,13 +47,19 @@ namespace panda_stl
 
     private:
         // 定义方法
-        void try_init() noexcept;
+        void _try_init() noexcept;
     };
+
+    template<typename T>
+    vector<T>::vector(int n)
+    {
+        _try_init();
+    }
 
     template<typename T>
     inline vector<T>::vector(size_type n)
     {
-        return;
+
     }
 
     template<typename T>
@@ -78,9 +84,12 @@ namespace panda_stl
     }
 
     template<typename T>
-    inline void vector<T>::try_init() noexcept
+    inline void vector<T>::_try_init() noexcept
     {
-
+        try
+        {
+            begin_=
+        }
     }
 
 } // end namespace stl
