@@ -83,13 +83,13 @@ namespace panda_stl
     {
     }
 
-    template<typename T>
-    inline void vector<T>::_try_init() noexcept
-    {
-        try
-        {
-            begin_=
-        }
-    }
+//    template<typename T>
+//    inline void vector<T>::_try_init() noexcept
+//    {
+//        try
+//        {
+//            begin_=
+//        }
+//    }
 
 } // end namespace stl

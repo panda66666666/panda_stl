@@ -38,7 +38,9 @@ namespace panda_stl
 
     private:
         void _try_init();
+
         void _fill_init();
+
     public:
 //        template<class ...Args>
 //        void emplace_back(Args &&...args);
@@ -47,6 +49,12 @@ namespace panda_stl
 
 
     };
+
+    template<typename T>
+    void Vector<T>::_fill_init()
+    {
+
+    }
 
     template<typename T>
     void Vector<T>::_try_init()
