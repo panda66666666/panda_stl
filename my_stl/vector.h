@@ -56,9 +56,9 @@ namespace panda_stl
         const size_t init_size = panda_stl::max((size_t) 16, size);
         // 申请内存
         try {
-            begin_ptr=allocator::allocate()
+            begin_ptr = allocator::allocate()
         } catch (...) {
-            
+
         }
     }
 
